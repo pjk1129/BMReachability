@@ -1,6 +1,6 @@
 # BMReachability
 
-1. What's BMReachability?
+What's BMReachability?
 
 BMReachability是基于AFNetworking的Reachability类封装的监听网络状态变化的组件。
 它在AF提供的无网络/wifi/蜂窝网络判断的基础上，增加了对2G/3G/4G网络的判断。
@@ -15,12 +15,12 @@ typedef NS_ENUM(NSInteger, BMNetworkReachabilityStatus) {
     BMNetworkReachabilityStatusReachableVia4G   = 5,
 };
 
-2. 系统要求：
+系统要求：
 
 最低要求支持 iOS 7.0 版本
 
 
-3. How To Use？
+How To Use？
 
 在你的类中导入BMReachability.h头文件，增加BMAddNetworkStatusObserver(self)监听，并实现BMNetworkStatusProtocol，在监听对象销毁时请注意移除监听BMRemoveNetworkStatusObserver(self)
 
