@@ -39,6 +39,7 @@
 - (id)init{
     self = [super init];
     if (self) {
+        _networkStatus = BMNetworkReachabilityStatusUnknown;
         [self startMonitoring];
     }
     return self;
