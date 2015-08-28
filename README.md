@@ -48,7 +48,7 @@ BMReachability是基于AFNetworking的Reachability类封装的监听网络状态
       	NSLog(@"当前网络状态为: %@",statusStr);
 	}
 
-#####特别提示: 你必须要在监听类销毁时调用BMAddNetworkStatusObserver(self);
+#####特别提示: 你必须要在监听类销毁时调用BMRemoveNetworkStatusObserver(self); 
 
 ###QA
 欢迎交流，在使用中遇到问题，可以给留言，当然最好自己试着修改，有好的建议，请希望留言，或者新浪微博联系我
