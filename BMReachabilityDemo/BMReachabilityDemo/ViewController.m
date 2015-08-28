@@ -12,6 +12,7 @@
 @interface ViewController ()<BMNetworkStatusProtocol>
 
 @property (nonatomic, strong) UIButton  *button;
+@property (nonatomic, strong) UILabel *statusLabel;
 @end
 
 @implementation ViewController
@@ -23,9 +24,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    _statusLabel= [[UILabel alloc] initWithFrame:CGRectMake(30, 30, 40, 40)];
+    [self.view addSubview:_statusLabel];
     [self button];
     BMAddNetworkStatusObserver(self);
 }
+
 
 - (void)networkStatusDidChangedFromStatus:(BMNetworkReachabilityStatus)fromStatus
                                  toStatus:(BMNetworkReachabilityStatus)toStatus{
@@ -39,6 +43,7 @@
     
     NSString  *statusStr = [[BMEnvObserverCenterNetworkStatus defaultCenter] currentNetWorkStatusString];
     NSLog(@"当前网络状态为: %@",statusStr);
+    _statusLabel.text = statusStr;
 
 }
 
