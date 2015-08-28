@@ -40,6 +40,7 @@
     self = [super init];
     if (self) {
         _networkStatus = BMNetworkReachabilityStatusUnknown;
+        _telephonyNetworkInfo = [CTTelephonyNetworkInfo new];
         [self startMonitoring];
     }
     return self;
@@ -103,9 +104,9 @@
     if (_networkStatus == BMNetworkReachabilityStatusNotReachable) return @"无网络";
     if (_networkStatus == BMNetworkReachabilityStatusReachableViaWiFi) return @"Wifi";
     if (_networkStatus == BMNetworkReachabilityStatusReachableViaWWAN) return @"蜂窝网络";
-    if (_networkStatus == BMNetworkReachabilityStatusReachableVia2G) return @"4G";
+    if (_networkStatus == BMNetworkReachabilityStatusReachableVia2G) return @"2G";
     if (_networkStatus == BMNetworkReachabilityStatusReachableVia3G) return @"3G";
-    if (_networkStatus == BMNetworkReachabilityStatusReachableVia4G) return @"2G";
+    if (_networkStatus == BMNetworkReachabilityStatusReachableVia4G) return @"4G";
     return @"未知网络";
 }
 
@@ -174,13 +175,6 @@
         _reachabilityManager = [AFNetworkReachabilityManager managerForDomain:@"www.baidu.com"];
     }
     return _reachabilityManager;
-}
-
-- (CTTelephonyNetworkInfo *)telephonyNetworkInfo{
-    if (!_telephonyNetworkInfo) {
-        _telephonyNetworkInfo = [[CTTelephonyNetworkInfo alloc] init];
-    }
-    return _telephonyNetworkInfo;
 }
 
 @end
